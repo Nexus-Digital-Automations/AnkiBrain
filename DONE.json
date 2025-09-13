@@ -513,10 +513,181 @@
       "updated_at": "2025-09-13T22:25:18.771Z",
       "archived_at": "2025-09-13T22:25:18.772Z",
       "archive_version": "2.0.0"
+    },
+    {
+      "status": "completed",
+      "created_at": "2025-09-13T22:28:26.771Z",
+      "title": "Fix critical linting errors in main codebase",
+      "description": "Fix 159 linting errors identified by ruff check. Focus on actionable code files (AnkiBrainModule.py, ExplainTalkButtons.py, and other core modules) while ignoring bundled dependencies in user_files/bundled_dependencies. Key issues: F403/F405 star imports, F401 unused imports, E713 membership tests. This is blocking all other work per zero tolerance linting policy.",
+      "category": "error",
+      "priority": "high",
+      "id": "error_1757802506771_r9hwjnzzlgn",
+      "assigned_agent": "dev_session_1757802427882_1_general_43d79e24",
+      "started_at": "2025-09-13T22:28:50.224Z",
+      "claimed_by": "dev_session_1757802427882_1_general_43d79e24",
+      "agent_assignment_history": [
+        {
+          "agentId": "dev_session_1757802427882_1_general_43d79e24",
+          "role": "primary",
+          "assignedAt": "2025-09-13T22:28:50.224Z",
+          "reassignReason": null,
+          "claimPriority": "normal"
+        }
+      ],
+      "completed_at": "2025-09-13T22:35:08.255Z",
+      "updated_at": "2025-09-13T22:35:08.255Z",
+      "archived_at": "2025-09-13T22:35:08.256Z",
+      "archive_version": "2.0.0"
+    },
+    {
+      "status": "completed",
+      "created_at": "2025-09-13T22:28:26.771Z",
+      "title": "Fix critical linting errors in main codebase",
+      "description": "Fix 159 linting errors identified by ruff check. Focus on actionable code files (AnkiBrainModule.py, ExplainTalkButtons.py, and other core modules) while ignoring bundled dependencies in user_files/bundled_dependencies. Key issues: F403/F405 star imports, F401 unused imports, E713 membership tests. This is blocking all other work per zero tolerance linting policy.",
+      "category": "error",
+      "priority": "high",
+      "id": "error_1757802506771_r9hwjnzzlgn",
+      "assigned_agent": "dev_session_1757802427882_1_general_43d79e24",
+      "started_at": "2025-09-13T22:28:50.224Z",
+      "claimed_by": "dev_session_1757802427882_1_general_43d79e24",
+      "agent_assignment_history": [
+        {
+          "agentId": "dev_session_1757802427882_1_general_43d79e24",
+          "role": "primary",
+          "assignedAt": "2025-09-13T22:28:50.224Z",
+          "reassignReason": null,
+          "claimPriority": "normal"
+        }
+      ],
+      "completed_at": "2025-09-13T22:35:15.573Z",
+      "updated_at": "2025-09-13T22:35:15.573Z",
+      "archived_at": "2025-09-13T22:35:15.574Z",
+      "archive_version": "2.0.0"
+    },
+    {
+      "id": "test_1757801315730_vymodp7l4",
+      "title": "Add comprehensive logging to diagnose startup performance issues",
+      "description": "Implement comprehensive logging throughout the codebase, especially for startup processes, to diagnose why the locally hosted version is taking too long to start. Update development/essentials/ to reflect this change.",
+      "priority": "medium",
+      "category": "feature",
+      "status": "completed",
+      "dependencies": [],
+      "important_files": [],
+      "success_criteria": [],
+      "estimate": "",
+      "requires_research": false,
+      "subtasks": [
+        {
+          "id": "research_1757797520187_e7202bdf",
+          "type": "research",
+          "title": "Research: Add comprehensive logging to diagnose startup performance issues",
+          "description": "Comprehensive research for Add comprehensive logging to diagnose startup performance issues to support implementation",
+          "status": "pending",
+          "estimated_hours": 1,
+          "research_locations": [
+            {
+              "type": "codebase",
+              "paths": [
+                "/lib",
+                "/src",
+                "/"
+              ],
+              "focus": "Existing implementation patterns and architecture"
+            },
+            {
+              "type": "internet",
+              "keywords": [
+                "comprehensive",
+                "logging",
+                "diagnose",
+                "startup",
+                "performance"
+              ],
+              "focus": "Best practices, industry standards, and technical specifications"
+            },
+            {
+              "type": "documentation",
+              "sources": [
+                "README.md",
+                "docs/",
+                "API documentation",
+                "package.json"
+              ],
+              "focus": "Project configuration and existing documentation"
+            }
+          ],
+          "deliverables": [
+            "Technical analysis report",
+            "Implementation recommendations",
+            "Risk assessment",
+            "Alternative approaches evaluation"
+          ],
+          "prevents_implementation": true,
+          "created_at": "2025-09-13T21:05:20.187Z"
+        },
+        {
+          "id": "audit_1757797520187_e7202bdf",
+          "type": "audit",
+          "title": "Audit: Add comprehensive logging to diagnose startup performance issues",
+          "description": "Comprehensive quality audit and review of the completed feature: Add comprehensive logging to diagnose startup performance issues\n\nOriginal Description: Implement comprehensive logging throughout the codebase, especially for startup processes, to diagnose why the locally hosted version is taking too long to start. Update development/essentials/ to reflect this change.",
+          "status": "pending",
+          "estimated_hours": 0.5,
+          "success_criteria": [
+            "Linter Perfection",
+            "Build Success",
+            "Runtime Success",
+            "Test Integrity",
+            "Function Documentation",
+            "Implementation Quality",
+            "Security Standards",
+            "Performance Standards"
+          ],
+          "prevents_completion": true,
+          "original_implementer": null,
+          "prevents_self_review": true,
+          "audit_type": "embedded_quality_gate",
+          "created_at": "2025-09-13T21:05:20.189Z"
+        }
+      ],
+      "created_at": "2025-09-13T21:05:20.189Z",
+      "auto_research_created": false,
+      "completed_at": "2025-09-13T22:07:52.311Z",
+      "updated_at": "2025-09-13T22:07:52.311Z",
+      "archived_at": "2025-09-13T22:35:38.499Z",
+      "archive_version": "2.0.0"
+    },
+    {
+      "status": "completed",
+      "created_at": "2025-09-13T22:28:26.771Z",
+      "title": "Fix critical linting errors in main codebase",
+      "description": "Fix 159 linting errors identified by ruff check. Focus on actionable code files (AnkiBrainModule.py, ExplainTalkButtons.py, and other core modules) while ignoring bundled dependencies in user_files/bundled_dependencies. Key issues: F403/F405 star imports, F401 unused imports, E713 membership tests. This is blocking all other work per zero tolerance linting policy.",
+      "category": "error",
+      "priority": "high",
+      "id": "test_1757802938497_armmeja2w",
+      "assigned_agent": "dev_session_1757802427882_1_general_43d79e24",
+      "started_at": "2025-09-13T22:28:50.224Z",
+      "claimed_by": "dev_session_1757802427882_1_general_43d79e24",
+      "agent_assignment_history": [
+        {
+          "agentId": "dev_session_1757802427882_1_general_43d79e24",
+          "role": "primary",
+          "assignedAt": "2025-09-13T22:28:50.224Z",
+          "reassignReason": null,
+          "claimPriority": "normal"
+        }
+      ],
+      "completed_at": "2025-09-13T22:35:15.573Z",
+      "updated_at": "2025-09-13T22:35:15.573Z",
+      "archived_at": "2025-09-13T22:35:38.499Z",
+      "archive_version": "2.0.0"
     }
   ],
-  "total_completed": 8,
+  "total_completed": 12,
   "last_completion": "2025-09-13T17:45:13.746Z",
   "created_at": "2025-09-13T17:35:43.808Z",
-  "last_archived": "2025-09-13T22:25:18.772Z"
+  "last_archived": "2025-09-13T22:35:38.499Z",
+  "metadata": {
+    "last_bulk_archive": "2025-09-13T22:35:38.499Z",
+    "bulk_archive_count": 1
+  }
 }
