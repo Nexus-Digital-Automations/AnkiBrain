@@ -1,6 +1,6 @@
-from aqt.qt import *
+from aqt.qt import QWidget, QPushButton, QHBoxLayout, QSize
 
-buttonStyle = '''
+buttonStyle = """
     QPushButton {
         color: black; 
         font-family: Arial;
@@ -12,15 +12,15 @@ buttonStyle = '''
     QPushButton:hover {
         background-color: gray;
     }
-'''
+"""
 
 
 class ExplainTalkButtons:
     def __init__(self, mw, position):
         self.widget = QWidget(mw)
 
-        self.explainButton = QPushButton('Explain', self.widget)
-        self.talkButton = QPushButton('Talk', self.widget)
+        self.explainButton = QPushButton("Explain", self.widget)
+        self.talkButton = QPushButton("Talk", self.widget)
 
         self.layout = QHBoxLayout()
         self.layout.addWidget(self.explainButton)
@@ -28,7 +28,7 @@ class ExplainTalkButtons:
         self.widget.setLayout(self.layout)
 
         self.position = position
-        self.widget.move(position['x'], position['y'] + 50)
+        self.widget.move(position["x"], position["y"] + 50)
         self.widget.setFixedSize(QSize(200, 60))
 
         self.explainButton.setFixedSize(QSize(90, 40))

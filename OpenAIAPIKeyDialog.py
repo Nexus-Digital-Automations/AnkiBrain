@@ -1,4 +1,4 @@
-from aqt.qt import *
+from aqt.qt import QDialog, QLabel, QLineEdit, QPushButton, QVBoxLayout
 
 
 class OpenAIAPIKeyDialog(QDialog):
@@ -9,11 +9,11 @@ class OpenAIAPIKeyDialog(QDialog):
         self.setWindowTitle("Set OpenAI API Key")
 
         self.label = QLabel()
-        self.label.setText('OpenAI API Key')
+        self.label.setText("OpenAI API Key")
 
         self.input_field = QLineEdit(self)
 
-        self.save_button = QPushButton('Save')
+        self.save_button = QPushButton("Save")
         self.save_button.clicked.connect(self._handle_key_save)
 
         self.layout = QVBoxLayout()

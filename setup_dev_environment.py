@@ -90,7 +90,6 @@ def check_dependencies():
     """Check if all required dependencies are installed"""
     print_status("Checking installed dependencies...")
 
-    venv_python = "user_files/venv/bin/python"
     venv_pip = "user_files/venv/bin/pip"
 
     # Upgrade pip first

@@ -1,9 +1,9 @@
-VERSION = "0.7.4"
-
 import os
 import sys
 import time
 from os import path
+
+VERSION = "0.7.4"
 
 # Initialize performance logging as early as possible
 startup_timer = time.time()
@@ -12,7 +12,7 @@ startup_timer = time.time()
 sys.path.insert(1, path.abspath(path.dirname(__file__)))
 
 # Import performance logging system
-from performance_logger import (
+from performance_logger import (  # noqa: E402
     get_performance_logger,
     log_startup_phase,
     PerformanceTimer,
@@ -50,7 +50,6 @@ with PerformanceTimer(logger, "setup_python_paths"):
 with PerformanceTimer(logger, "import_anki_dependencies"):
     from anki.hooks import addHook
     from aqt import mw
-    from aqt.qt import *
 
 with PerformanceTimer(logger, "setup_version_file"):
     mw.CURRENT_VERSION = VERSION

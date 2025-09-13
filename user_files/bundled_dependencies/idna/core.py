@@ -2,7 +2,7 @@ from . import idnadata
 import bisect
 import unicodedata
 import re
-from typing import Union, Optional
+from typing import Union
 from .intranges import intranges_contain
 
 _virama_combining_class = 9
@@ -87,7 +87,7 @@ def check_bidi(label: str, check_ltr: bool = False) -> bool:
 
         if rtl:
             # Bidi rule 2
-            if not direction in ['R', 'AL', 'AN', 'EN', 'ES', 'CS', 'ET', 'ON', 'BN', 'NSM']:
+            if direction not in ['R', 'AL', 'AN', 'EN', 'ES', 'CS', 'ET', 'ON', 'BN', 'NSM']:
                 raise IDNABidiError('Invalid direction for codepoint at position {} in a right-to-left label'.format(idx))
             # Bidi rule 3
             if direction in ['R', 'AL', 'EN', 'AN']:
@@ -103,7 +103,7 @@ def check_bidi(label: str, check_ltr: bool = False) -> bool:
                         raise IDNABidiError('Can not mix numeral types in a right-to-left label')
         else:
             # Bidi rule 5
-            if not direction in ['L', 'EN', 'ES', 'CS', 'ET', 'ON', 'BN', 'NSM']:
+            if direction not in ['L', 'EN', 'ES', 'CS', 'ET', 'ON', 'BN', 'NSM']:
                 raise IDNABidiError('Invalid direction for codepoint at position {} in a left-to-right label'.format(idx))
             # Bidi rule 6
             if direction in ['L', 'EN']:

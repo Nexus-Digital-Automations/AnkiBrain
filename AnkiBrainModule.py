@@ -8,7 +8,7 @@ import time
 
 from anki.hooks import addHook
 from aqt import mw, gui_hooks
-from aqt.qt import *
+from aqt.qt import QObject, pyqtSignal, QFileDialog, Qt, qconnect
 from aqt.utils import showInfo
 from dotenv import set_key, load_dotenv
 from performance_logger import (

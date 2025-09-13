@@ -2,7 +2,7 @@ import platform
 import webbrowser
 
 from aqt import mw
-from aqt.qt import *
+from aqt.qt import QDialog, QVBoxLayout, QLabel, QPushButton
 
 from boot import load_ankibrain
 from changelog import get_changelog_html, build_changelog_scroller
@@ -13,7 +13,9 @@ root_dir = root_project_dir
 
 
 def show_manual_install_instr():
-    webbrowser.open('https://www.reddit.com/r/ankibrain/comments/14ej1bq/how_to_install_ankibrain/')
+    webbrowser.open(
+        "https://www.reddit.com/r/ankibrain/comments/14ej1bq/how_to_install_ankibrain/"
+    )
 
 
 class PostUpdateDialog(QDialog):
@@ -33,16 +35,16 @@ class PostUpdateDialog(QDialog):
         updated_text_label.setOpenExternalLinks(True)
 
         # Set up the continue update button.
-        install_button = QPushButton('Continue AnkiBrain Update')
+        install_button = QPushButton("Continue AnkiBrain Update")
         system = platform.system()
-        if system == 'Windows':
+        if system == "Windows":
             install_button.clicked.connect(run_win_install)
-        elif system == 'Darwin':
+        elif system == "Darwin":
             install_button.clicked.connect(run_macos_install)
-        elif system == 'Linux':
+        elif system == "Linux":
             install_button.clicked.connect(run_linux_install)
 
-        show_manual_install_instr_button = QPushButton('Show Manual Instructions')
+        show_manual_install_instr_button = QPushButton("Show Manual Instructions")
         show_manual_install_instr_button.clicked.connect(show_manual_install_instr)
 
         # Set up changelog scroller.
@@ -56,13 +58,15 @@ class PostUpdateDialog(QDialog):
         run_ankibrain_label.setText("After updating, please restart Anki.")
         start_ankibrain_button = QPushButton("Start AnkiBrain")
 
-        start_ankibrain_button.clicked.connect(self._handle_start_ankibrain_button_click)
+        start_ankibrain_button.clicked.connect(
+            self._handle_start_ankibrain_button_click
+        )
 
         if is_local_mode:
             layout.addWidget(run_ankibrain_label)
             # layout.addWidget(start_ankibrain_button)
 
-            layout.addWidget(QLabel('Stuck? Get Help:'))
+            layout.addWidget(QLabel("Stuck? Get Help:"))
             layout.addWidget(show_manual_install_instr_button)
 
         self.setLayout(layout)

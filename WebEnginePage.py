@@ -1,6 +1,6 @@
 import webbrowser
 
-from aqt.qt import *
+from aqt.qt import QWebEnginePage, pyqtSignal
 
 
 class WebEnginePage(QWebEnginePage):
@@ -11,8 +11,8 @@ class WebEnginePage(QWebEnginePage):
         self.view = None
 
     def javaScriptConsoleMessage(self, level, message, lineNumber, sourceID):
-        if 'DATA_FROM_REACT' in message:
-            data = message.replace('DATA_FROM_REACT:', '').strip()
+        if "DATA_FROM_REACT" in message:
+            data = message.replace("DATA_FROM_REACT:", "").strip()
             self.react_data_received.emit(data)
         else:
             super().javaScriptConsoleMessage(level, message, lineNumber, sourceID)

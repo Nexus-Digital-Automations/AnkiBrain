@@ -1,5 +1,5 @@
 from aqt import mw
-from aqt.qt import *
+from aqt.qt import QDialog, QLabel, QVBoxLayout, QHBoxLayout, QPushButton
 
 from boot import reload_ankibrain
 from util import UserMode
@@ -11,17 +11,20 @@ class UserModeDialog(QDialog):
         self.setWindowTitle("Welcome to AnkiBrain")
 
         header = QLabel()
-        header.setText('Welcome to AnkiBrain! Please select your user mode.')
+        header.setText("Welcome to AnkiBrain! Please select your user mode.")
 
         container = QVBoxLayout()
         container.addWidget(header)
 
         regular_mode_container = QVBoxLayout()
-        regular_mode_btn = QPushButton('Regular (recommended)')
+        regular_mode_btn = QPushButton("Regular (recommended)")
 
         from util import is_windows, is_linux
+
         if is_windows() or is_linux():
-            regular_mode_btn.setStyleSheet("""background-color: #afebf4; color: black;""")
+            regular_mode_btn.setStyleSheet(
+                """background-color: #afebf4; color: black;"""
+            )
 
         regular_mode_btn.clicked.connect(handle_server_mode_clicked)
         regular_mode_text = QLabel()
@@ -42,7 +45,7 @@ class UserModeDialog(QDialog):
         regular_mode_container.addWidget(regular_mode_text)
 
         local_mode_container = QVBoxLayout()
-        local_mode_btn = QPushButton('Local (advanced users)')
+        local_mode_btn = QPushButton("Local (advanced users)")
         local_mode_btn.clicked.connect(handle_local_mode_clicked)
         local_mode_text = QLabel()
         local_mode_text.setText(
@@ -73,6 +76,7 @@ class UserModeDialog(QDialog):
 
 def show_user_mode_dialog():
     from aqt import mw
+
     mw.userModeDialog = UserModeDialog()
     mw.userModeDialog.show()
 

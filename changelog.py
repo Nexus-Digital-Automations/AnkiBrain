@@ -2,16 +2,16 @@ from os import path
 
 import markdown
 from aqt import mw
-from aqt.qt import *
+from aqt.qt import QDialog, QLabel, QScrollArea, QVBoxLayout
 
 from project_paths import root_project_dir as root_dir
 
 
 def get_changelog_html() -> str:
-    changelog = ''
-    changelog_file_path = path.join(root_dir, 'changelog.md')
+    changelog = ""
+    changelog_file_path = path.join(root_dir, "changelog.md")
     if path.isfile(changelog_file_path):
-        with open(changelog_file_path, 'r') as f:
+        with open(changelog_file_path, "r") as f:
             changelog = f.read()
 
     return markdown.markdown(changelog)
@@ -34,7 +34,7 @@ def build_changelog_scroller(changelog_html: str = get_changelog_html()) -> QScr
 class ChangelogDialog(QDialog):
     def __init__(self, parent=mw):
         super().__init__(parent)
-        self.setWindowTitle('AnkiBrain Changelog')
+        self.setWindowTitle("AnkiBrain Changelog")
 
         changelog_scroller = build_changelog_scroller(get_changelog_html())
         layout = QVBoxLayout()

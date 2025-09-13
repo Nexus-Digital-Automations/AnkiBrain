@@ -4,13 +4,9 @@ from .._connection import Connection, NEED_DATA, PAUSED
 from .._events import (
     ConnectionClosed,
     Data,
-    EndOfMessage,
     Event,
-    InformationalResponse,
-    Request,
-    Response,
 )
-from .._state import CLIENT, CLOSED, DONE, MUST_CLOSE, SERVER
+from .._state import CLIENT, SERVER
 from .._util import Sentinel
 
 try:

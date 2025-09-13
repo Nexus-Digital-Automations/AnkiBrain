@@ -3,7 +3,6 @@ from typing import Any, Callable, Generator, List
 import pytest
 
 from .._events import (
-    ConnectionClosed,
     Data,
     EndOfMessage,
     Event,
@@ -22,15 +21,9 @@ from .._readers import (
 from .._receivebuffer import ReceiveBuffer
 from .._state import (
     CLIENT,
-    CLOSED,
-    DONE,
     IDLE,
-    MIGHT_SWITCH_PROTOCOL,
-    MUST_CLOSE,
-    SEND_BODY,
     SEND_RESPONSE,
     SERVER,
-    SWITCHED_PROTOCOL,
 )
 from .._util import LocalProtocolError
 from .._writers import (

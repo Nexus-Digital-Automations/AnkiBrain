@@ -1,11 +1,11 @@
 import platform
 import webbrowser
 
-from aqt.qt import *
+from aqt.qt import QDialog, QPushButton, QLabel, QVBoxLayout
 
 from util import run_win_install, run_macos_install, run_linux_install
 
-pyenv_generic_instr = '''
+pyenv_generic_instr = """
 Create a python 3.9.13 venv:
     <p><code>pyenv install 3.9.13</code></p>
     <p><code>pyenv local 3.9.13</code></p>
@@ -15,9 +15,9 @@ Create a python 3.9.13 venv:
     <p>MacOS/Linux: <code>./venv/bin/activate</code></p>
     <p><code>pip install -r requirements.txt</code></p>
     <p><code></code></p>
-'''
+"""
 
-win_auto_install_instr = '''
+win_auto_install_instr = """
 <html>
 <p>Windows Install Instructions</p>
 <ol>
@@ -34,18 +34,20 @@ win_auto_install_instr = '''
     </li>
 </ol>
 </html>
-'''
+"""
 
-macos_linux_auto_install_instr = '''
+macos_linux_auto_install_instr = """
 <html><p>
 Simply run the setup script below. 
 If issues, see manual install instructions.
 </p></html>
-'''
+"""
 
 
 def show_manual_install_instr():
-    webbrowser.open('https://www.reddit.com/r/ankibrain/comments/14ej1bq/how_to_install_ankibrain/')
+    webbrowser.open(
+        "https://www.reddit.com/r/ankibrain/comments/14ej1bq/how_to_install_ankibrain/"
+    )
 
 
 class InstallDialog(QDialog):
@@ -55,28 +57,30 @@ class InstallDialog(QDialog):
 
         system = platform.system()
 
-        install_instr = ''
+        install_instr = ""
         install_button = None
-        if system == 'Windows':
+        if system == "Windows":
             install_instr = win_auto_install_instr
-            install_button = QPushButton('Run Windows Installer')
+            install_button = QPushButton("Run Windows Installer")
             install_button.clicked.connect(run_win_install)
-        elif system == 'Darwin':
+        elif system == "Darwin":
             install_instr = macos_linux_auto_install_instr
-            install_button = QPushButton('Run MacOS Installer')
+            install_button = QPushButton("Run MacOS Installer")
             install_button.clicked.connect(run_macos_install)
-        elif system == 'Linux':
+        elif system == "Linux":
             install_instr = macos_linux_auto_install_instr
-            install_button = QPushButton('Run Ubuntu/Debian Installer')
+            install_button = QPushButton("Run Ubuntu/Debian Installer")
             install_button.clicked.connect(run_linux_install)
 
         label = QLabel()
         label.setText(install_instr)
         label.setOpenExternalLinks(True)
 
-        restart_text = QLabel('\n\nFinal step: Restart Anki\n')
+        restart_text = QLabel("\n\nFinal step: Restart Anki\n")
 
-        show_manual_install_instr_button = QPushButton('Show Manual Install Instructions')
+        show_manual_install_instr_button = QPushButton(
+            "Show Manual Install Instructions"
+        )
         show_manual_install_instr_button.clicked.connect(show_manual_install_instr)
 
         layout = QVBoxLayout()
@@ -84,7 +88,7 @@ class InstallDialog(QDialog):
         layout.addWidget(install_button)
         layout.addWidget(restart_text)
 
-        layout.addWidget(QLabel('Stuck? Get Help:'))
+        layout.addWidget(QLabel("Stuck? Get Help:"))
         layout.addWidget(show_manual_install_instr_button)
 
         self.setLayout(layout)
@@ -92,4 +96,5 @@ class InstallDialog(QDialog):
 
 def show_install_dialog():
     from aqt import mw
+
     mw.installDialog.show()
