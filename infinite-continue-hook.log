@@ -1,0 +1,92 @@
+{
+  "execution": {
+    "timestamp": "2025-09-13T17:36:08.935Z",
+    "projectRoot": "/Users/jeremyparker/Desktop/Claude Coding Projects/AnkiBrain",
+    "hookVersion": "1.0.0",
+    "nodeVersion": "v22.19.0",
+    "platform": "darwin",
+    "arch": "arm64",
+    "pid": 60253,
+    "cwd": "/Users/jeremyparker/Desktop/Claude Coding Projects/AnkiBrain",
+    "endTimestamp": "2025-09-13T17:36:08.955Z",
+    "durationMs": 20
+  },
+  "input": {
+    "sessionId": "47be2f23-0c46-44ec-bbde-4423228a0ca7",
+    "transcriptPath": "/Users/jeremyparker/.claude/projects/-Users-jeremyparker-Desktop-Claude-Coding-Projects-AnkiBrain/47be2f23-0c46-44ec-bbde-4423228a0ca7.jsonl",
+    "stopHookActive": false,
+    "rawInput": {
+      "session_id": "47be2f23-0c46-44ec-bbde-4423228a0ca7",
+      "transcript_path": "/Users/jeremyparker/.claude/projects/-Users-jeremyparker-Desktop-Claude-Coding-Projects-AnkiBrain/47be2f23-0c46-44ec-bbde-4423228a0ca7.jsonl",
+      "cwd": "/Users/jeremyparker/Desktop/Claude Coding Projects/AnkiBrain",
+      "permission_mode": "acceptEdits",
+      "hook_event_name": "Stop",
+      "stop_hook_active": false
+    }
+  },
+  "projectState": {},
+  "decisions": [],
+  "flow": [
+    {
+      "timestamp": "2025-09-13T17:36:08.937Z",
+      "message": "Raw input data: \"{\"session_id\":\"47be2f23-0c46-44ec-bbde-4423228a0ca7\",\"transcript_path\":\"/Users/jeremyparker/.claude/projects/-Users-jeremyparker-Desktop-Claude-Coding-Projects-AnkiBrain/47be2f23-0c46-44ec-bbde-4423228a0ca7.jsonl\",\"cwd\":\"/Users/jeremyparker/Desktop/Claude Coding Projects/AnkiBrain\",\"permission_mode\":\"acceptEdits\",\"hook_event_name\":\"Stop\",\"stop_hook_active\":false}\""
+    },
+    {
+      "timestamp": "2025-09-13T17:36:08.937Z",
+      "message": "Input data length: 365"
+    },
+    {
+      "timestamp": "2025-09-13T17:36:08.937Z",
+      "message": "Received input from Claude Code"
+    },
+    {
+      "timestamp": "2025-09-13T17:36:08.937Z",
+      "message": "Received Stop event from Claude Code"
+    },
+    {
+      "timestamp": "2025-09-13T17:36:08.945Z",
+      "message": "Found 1 total agents in TODO.json"
+    },
+    {
+      "timestamp": "2025-09-13T17:36:08.945Z",
+      "message": "Agent development_session_1757784784065_1_general_41de124b: heartbeat=2025-09-13T17:33:04.066Z, timeSince=185s, isActive=true"
+    },
+    {
+      "timestamp": "2025-09-13T17:36:08.945Z",
+      "message": "Running automatic task sorting and test error reclassification"
+    },
+    {
+      "timestamp": "2025-09-13T17:36:08.953Z",
+      "message": "Successfully reclassified 1 test errors from error section to testing section"
+    },
+    {
+      "timestamp": "2025-09-13T17:36:08.954Z",
+      "message": "Active agents found: 1, Stale agents removed: 0, Tasks unassigned: 0, Stale tasks reset: 0"
+    },
+    {
+      "timestamp": "2025-09-13T17:36:08.955Z",
+      "message": "Task status: 1 pending, 0 in_progress, 0 completed"
+    },
+    {
+      "timestamp": "2025-09-13T17:36:08.955Z",
+      "message": "Running automatic task archival for completed tasks"
+    },
+    {
+      "timestamp": "2025-09-13T17:36:08.955Z",
+      "message": "No completed tasks found to archive"
+    },
+    {
+      "timestamp": "2025-09-13T17:36:08.955Z",
+      "message": "Never-stop mode: Providing instructive task management guidance"
+    },
+    {
+      "timestamp": "2025-09-13T17:36:08.955Z",
+      "message": "Exiting with code 2: Infinite continue mode - providing task guidance"
+    }
+  ],
+  "output": {
+    "exitCode": 2,
+    "exitReason": "Infinite continue mode - providing task guidance"
+  },
+  "errors": []
+}

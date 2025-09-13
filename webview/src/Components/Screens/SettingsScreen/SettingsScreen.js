@@ -80,6 +80,8 @@ const AdvancedSettings = (props) => {
           >
             <option value={"gpt-3.5-turbo"}>gpt-3.5-turbo (default)</option>
             <option value={"gpt-4"}>gpt-4 (expensive)</option>
+            <option value={"gpt-5"}>gpt-5 (premium)</option>
+            <option value={"gpt-5-mini"}>gpt-5-mini</option>
           </Select>
           <Input
             value={temperature}

@@ -1,0 +1,163 @@
+{
+  "project": "unknown",
+  "tasks": [
+    {
+      "id": "feature_1757785072274_o64mfcpl0",
+      "title": "Implement ChatGPT 5 and 5 mini model support in AnkiBrain",
+      "description": "Add support for ChatGPT 5 and ChatGPT 5 mini models to the application. Research existing model implementation patterns, integrate the new models with existing functionality, ensure compatibility with current features. This implements the core user requirement defined in development/essentials/user-requirements.md.",
+      "priority": "medium",
+      "category": "feature",
+      "status": "in_progress",
+      "dependencies": [],
+      "important_files": [],
+      "success_criteria": [],
+      "estimate": "",
+      "requires_research": false,
+      "subtasks": [
+        {
+          "id": "research_1757785072275_2e77cd09",
+          "type": "research",
+          "title": "Research: Implement ChatGPT 5 and 5 mini model support in AnkiBrain",
+          "description": "Comprehensive research for Implement ChatGPT 5 and 5 mini model support in AnkiBrain to support implementation",
+          "status": "pending",
+          "estimated_hours": 1,
+          "research_locations": [
+            {
+              "type": "codebase",
+              "paths": [
+                "/lib",
+                "/src",
+                "/"
+              ],
+              "focus": "Existing implementation patterns and architecture"
+            },
+            {
+              "type": "internet",
+              "keywords": [
+                "implement",
+                "chatgpt",
+                "mini",
+                "model",
+                "support"
+              ],
+              "focus": "Best practices, industry standards, and technical specifications"
+            },
+            {
+              "type": "documentation",
+              "sources": [
+                "README.md",
+                "docs/",
+                "API documentation",
+                "package.json"
+              ],
+              "focus": "Project configuration and existing documentation"
+            }
+          ],
+          "deliverables": [
+            "Technical analysis report",
+            "Implementation recommendations",
+            "Risk assessment",
+            "Alternative approaches evaluation"
+          ],
+          "prevents_implementation": true,
+          "created_at": "2025-09-13T17:37:52.275Z"
+        },
+        {
+          "id": "audit_1757785072275_2e77cd09",
+          "type": "audit",
+          "title": "Audit: Implement ChatGPT 5 and 5 mini model support in AnkiBrain",
+          "description": "Comprehensive quality audit and review of the completed feature: Implement ChatGPT 5 and 5 mini model support in AnkiBrain\n\nOriginal Description: Add support for ChatGPT 5 and ChatGPT 5 mini models to the application. Research existing model implementation patterns, integrate the new models with existing functionality, ensure compatibility with current features. This implements the core user requirement defined in development/essentials/user-requirements.md.",
+          "status": "pending",
+          "estimated_hours": 0.5,
+          "success_criteria": [
+            "Linter Perfection",
+            "Build Success",
+            "Runtime Success",
+            "Test Integrity",
+            "Function Documentation",
+            "Implementation Quality",
+            "Security Standards",
+            "Performance Standards"
+          ],
+          "prevents_completion": true,
+          "original_implementer": null,
+          "prevents_self_review": true,
+          "audit_type": "embedded_quality_gate",
+          "created_at": "2025-09-13T17:37:52.280Z"
+        }
+      ],
+      "created_at": "2025-09-13T17:37:52.280Z",
+      "auto_research_created": false,
+      "assigned_agent": "development_session_1757784784065_1_general_41de124b",
+      "started_at": "2025-09-13T17:39:59.473Z",
+      "claimed_by": "development_session_1757784784065_1_general_41de124b",
+      "agent_assignment_history": [
+        {
+          "agentId": "development_session_1757784784065_1_general_41de124b",
+          "role": "primary",
+          "assignedAt": "2025-09-13T17:39:59.473Z",
+          "reassignReason": null,
+          "claimPriority": "normal"
+        }
+      ]
+    }
+  ],
+  "agents": {
+    "development_session_1757784784065_1_general_41de124b": {
+      "name": "development Agent",
+      "role": "development",
+      "specialization": [],
+      "status": "active",
+      "assignedTasks": [],
+      "lastHeartbeat": "2025-09-13T17:33:04.066Z",
+      "parentAgentId": null,
+      "capabilities": [
+        "file-operations",
+        "linting",
+        "testing",
+        "build-fixes",
+        "refactoring"
+      ],
+      "workload": 0,
+      "maxConcurrentTasks": 5,
+      "createdAt": "2025-09-13T17:33:04.066Z",
+      "sessionId": "session_1757784784065",
+      "metadata": {
+        "renewedAt": "2025-09-13T17:36:34.509Z",
+        "renewalReason": "Agent reinitialization requested"
+      },
+      "lastRenewal": "2025-09-13T17:36:34.509Z",
+      "renewalCount": 1,
+      "agentId": "development_session_1757784784065_1_general_41de124b"
+    }
+  },
+  "settings": {
+    "auto_sort_enabled": true,
+    "sort_criteria": {
+      "primary": "id_prefix",
+      "secondary": "created_at"
+    },
+    "priority_values": {
+      "critical": 4,
+      "high": 3,
+      "medium": 2,
+      "low": 1
+    },
+    "category_enabled": true,
+    "category_ranks": {
+      "error": 1,
+      "feature": 2,
+      "subtask": 3,
+      "test": 4,
+      "quality": 5
+    },
+    "id_based_classification": true,
+    "id_priority_order": {
+      "error_": 1,
+      "feature_": 2,
+      "subtask_": 3,
+      "test_": 4
+    }
+  },
+  "current_mode": "DEVELOPMENT"
+}
