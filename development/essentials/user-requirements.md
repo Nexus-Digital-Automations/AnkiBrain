@@ -38,9 +38,12 @@ This document defines the **ONLY** changes requested by the user for the AnkiBra
 ### Success Criteria
 
 **ChatGPT Model Support:**
-- [ ] ChatGPT 5 model is available and functional in the application
-- [ ] ChatGPT 5 mini model is available and functional in the application
-- [ ] Both models integrate seamlessly with existing features
+- [x] ChatGPT 5 model is available and functional in the application (model identifier: `gpt-5`)
+- [x] ChatGPT 5 mini model is available and functional in the application (model identifier: `gpt-5-mini`) 
+- [x] Both models integrate seamlessly with existing features
+- [x] Frontend UI already includes dropdown options for both ChatGPT 5 models in Settings screen
+- [x] Backend ChatAI system supports dynamic model configuration via settings.json
+- [x] Both LOCAL and SERVER modes support the new model identifiers
 
 **Comprehensive Logging Implementation:**
 - [x] Performance logging utility module created (performance_logger.py)

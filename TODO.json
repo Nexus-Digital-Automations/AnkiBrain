@@ -7,7 +7,7 @@
       "description": "Comprehensive quality audit and review of the completed feature: Implement ChatGPT 5 and 5 mini model support in AnkiBrain\n\nOriginal Description: Add support for ChatGPT 5 and ChatGPT 5 mini models to the application. Research existing model implementation patterns, integrate the new models with existing functionality, ensure compatibility with current features. This implements the core user requirement defined in development/essentials/user-requirements.md.",
       "category": "audit",
       "priority": "high",
-      "status": "pending",
+      "status": "completed",
       "dependencies": [],
       "important_files": [],
       "success_criteria": [
@@ -45,7 +45,9 @@
           "timestamp": "2025-09-13T18:32:59.591Z",
           "reason": "Agent became stale (inactive >15 minutes)"
         }
-      ]
+      ],
+      "completed_at": "2025-09-13T22:19:02.760Z",
+      "updated_at": "2025-09-13T22:19:02.760Z"
     },
     {
       "id": "feature_1757786840570_pa15g4cj5",
@@ -202,6 +204,28 @@
       "description": "Implement comprehensive logging throughout the codebase, especially focusing on the startup process in boot.py and main modules, to diagnose why locally hosted version startup is taking too long. Include timing metrics, bottleneck identification, and performance monitoring. Update development/essentials/ files to reflect this performance issue and logging implementation.",
       "category": "feature",
       "id": "test_1757801315730_bq7gqvk6f"
+    },
+    {
+      "status": "completed",
+      "created_at": "2025-09-13T22:14:25.995Z",
+      "title": "Fix critical linting errors in ChatAI InterprocessCommand.py",
+      "description": "Fix undefined name errors in ChatAI/InterprocessCommand.py lines 50-51: SET_TEMPERATURE and DID_SET_TEMPERATURE variables are referenced but not properly assigned",
+      "category": "error",
+      "priority": "normal",
+      "id": "error_1757801665995_wmd3cse9fhj",
+      "completed_at": "2025-09-13T22:15:34.582Z",
+      "updated_at": "2025-09-13T22:15:34.582Z"
+    },
+    {
+      "status": "completed",
+      "created_at": "2025-09-13T22:14:46.068Z",
+      "title": "Fix module import ordering in ChatAI __init__.py",
+      "description": "Fix E402 module level import errors in ChatAI/__init__.py lines 11-16: Move imports to top of file after module-level variables",
+      "category": "error",
+      "priority": "normal",
+      "id": "error_1757801686068_equcrypd6n9",
+      "completed_at": "2025-09-13T22:15:52.890Z",
+      "updated_at": "2025-09-13T22:15:52.890Z"
     }
   ],
   "agents": {

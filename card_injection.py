@@ -1,3 +1,11 @@
+from __future__ import annotations
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from anki.cards import Card
+
+
 def generate_card_injection_content(show_card_bottom_hint=True):
     out = """
     <script>
@@ -34,16 +42,22 @@ def generate_card_injection_content(show_card_bottom_hint=True):
     </script>
     """
     if show_card_bottom_hint:
-        out = """
+        out = (
+            """
             <p style="color: gray; font-size: 12px;">
             Highlight any text on this card to interact with AnkiBrain
             </p>
-        """ + out
+        """
+            + out
+        )
 
     return out
 
 
 def handle_card_will_show(text: str, card: "Card", kind: str) -> str:
     from aqt import mw
-    show_card_bottom_hint = mw.settingsManager.get('showCardBottomHint')
-    return text + generate_card_injection_content(show_card_bottom_hint=show_card_bottom_hint)
+
+    show_card_bottom_hint = mw.settingsManager.get("showCardBottomHint")
+    return text + generate_card_injection_content(
+        show_card_bottom_hint=show_card_bottom_hint
+    )
