@@ -5,6 +5,10 @@ __pycache__/
 # Ignore specific file
 user_files/settings.json
 
+# Virtual environments
+user_files/venv/
+.python-version
+requirements.txt
 
 node_modules/
 .next/

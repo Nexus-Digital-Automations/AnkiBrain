@@ -1,4 +1,3 @@
-from anki.models import NoteType
 from anki.notes import Note
 from aqt import mw
 

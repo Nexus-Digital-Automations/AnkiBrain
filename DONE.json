@@ -126,9 +126,228 @@
       "needs_linter_feedback": true,
       "linter_feedback_generated": false,
       "archived_from_todo": "/Users/jeremyparker/Desktop/Claude Coding Projects/AnkiBrain/TODO.json"
+    },
+    {
+      "id": "feature_1757785072274_o64mfcpl0",
+      "title": "Implement ChatGPT 5 and 5 mini model support in AnkiBrain",
+      "description": "Add support for ChatGPT 5 and ChatGPT 5 mini models to the application. Research existing model implementation patterns, integrate the new models with existing functionality, ensure compatibility with current features. This implements the core user requirement defined in development/essentials/user-requirements.md.",
+      "priority": "medium",
+      "category": "feature",
+      "status": "completed",
+      "dependencies": [],
+      "important_files": [],
+      "success_criteria": [],
+      "estimate": "",
+      "requires_research": false,
+      "subtasks": [
+        {
+          "id": "research_1757785072275_2e77cd09",
+          "type": "research",
+          "title": "Research: Implement ChatGPT 5 and 5 mini model support in AnkiBrain",
+          "description": "Comprehensive research for Implement ChatGPT 5 and 5 mini model support in AnkiBrain to support implementation",
+          "status": "pending",
+          "estimated_hours": 1,
+          "research_locations": [
+            {
+              "type": "codebase",
+              "paths": [
+                "/lib",
+                "/src",
+                "/"
+              ],
+              "focus": "Existing implementation patterns and architecture"
+            },
+            {
+              "type": "internet",
+              "keywords": [
+                "implement",
+                "chatgpt",
+                "mini",
+                "model",
+                "support"
+              ],
+              "focus": "Best practices, industry standards, and technical specifications"
+            },
+            {
+              "type": "documentation",
+              "sources": [
+                "README.md",
+                "docs/",
+                "API documentation",
+                "package.json"
+              ],
+              "focus": "Project configuration and existing documentation"
+            }
+          ],
+          "deliverables": [
+            "Technical analysis report",
+            "Implementation recommendations",
+            "Risk assessment",
+            "Alternative approaches evaluation"
+          ],
+          "prevents_implementation": true,
+          "created_at": "2025-09-13T17:37:52.275Z"
+        },
+        {
+          "id": "audit_1757785072275_2e77cd09",
+          "type": "audit",
+          "title": "Audit: Implement ChatGPT 5 and 5 mini model support in AnkiBrain",
+          "description": "Comprehensive quality audit and review of the completed feature: Implement ChatGPT 5 and 5 mini model support in AnkiBrain\n\nOriginal Description: Add support for ChatGPT 5 and ChatGPT 5 mini models to the application. Research existing model implementation patterns, integrate the new models with existing functionality, ensure compatibility with current features. This implements the core user requirement defined in development/essentials/user-requirements.md.",
+          "status": "pending",
+          "estimated_hours": 0.5,
+          "success_criteria": [
+            "Linter Perfection",
+            "Build Success",
+            "Runtime Success",
+            "Test Integrity",
+            "Function Documentation",
+            "Implementation Quality",
+            "Security Standards",
+            "Performance Standards"
+          ],
+          "prevents_completion": true,
+          "original_implementer": null,
+          "prevents_self_review": true,
+          "audit_type": "embedded_quality_gate",
+          "created_at": "2025-09-13T17:37:52.280Z"
+        }
+      ],
+      "created_at": "2025-09-13T17:37:52.280Z",
+      "auto_research_created": false,
+      "assigned_agent": "development_session_1757784784065_1_general_41de124b",
+      "started_at": "2025-09-13T17:39:59.473Z",
+      "claimed_by": "development_session_1757784784065_1_general_41de124b",
+      "agent_assignment_history": [
+        {
+          "agentId": "development_session_1757784784065_1_general_41de124b",
+          "role": "primary",
+          "assignedAt": "2025-09-13T17:39:59.473Z",
+          "reassignReason": null,
+          "claimPriority": "normal"
+        }
+      ],
+      "completion_history": [
+        {
+          "taskId": "feature_1757785072274_o64mfcpl0",
+          "completedAt": "2025-09-13T17:45:13.743Z",
+          "completedBy": "development_session_1757784784065_1_general_41de124b",
+          "evidence": {},
+          "completionNotes": "",
+          "category": "feature",
+          "priority": "medium"
+        }
+      ],
+      "access_history": [
+        {
+          "agentId": "system",
+          "timestamp": "2025-09-13T17:45:13.743Z",
+          "action": "status_change",
+          "details": {
+            "oldStatus": "in_progress",
+            "newStatus": "completed"
+          }
+        }
+      ],
+      "completed_at": "2025-09-13T17:45:13.746Z",
+      "needs_linter_feedback": true,
+      "linter_feedback_generated": false,
+      "archived_from_todo": "/Users/jeremyparker/Desktop/Claude Coding Projects/AnkiBrain/TODO.json"
+    },
+    {
+      "id": "feature_1757797520187_8pg9tas2f",
+      "title": "Add comprehensive logging to diagnose startup performance issues",
+      "description": "Implement comprehensive logging throughout the codebase, especially for startup processes, to diagnose why the locally hosted version is taking too long to start. Update development/essentials/ to reflect this change.",
+      "priority": "medium",
+      "category": "feature",
+      "status": "completed",
+      "dependencies": [],
+      "important_files": [],
+      "success_criteria": [],
+      "estimate": "",
+      "requires_research": false,
+      "subtasks": [
+        {
+          "id": "research_1757797520187_e7202bdf",
+          "type": "research",
+          "title": "Research: Add comprehensive logging to diagnose startup performance issues",
+          "description": "Comprehensive research for Add comprehensive logging to diagnose startup performance issues to support implementation",
+          "status": "pending",
+          "estimated_hours": 1,
+          "research_locations": [
+            {
+              "type": "codebase",
+              "paths": [
+                "/lib",
+                "/src",
+                "/"
+              ],
+              "focus": "Existing implementation patterns and architecture"
+            },
+            {
+              "type": "internet",
+              "keywords": [
+                "comprehensive",
+                "logging",
+                "diagnose",
+                "startup",
+                "performance"
+              ],
+              "focus": "Best practices, industry standards, and technical specifications"
+            },
+            {
+              "type": "documentation",
+              "sources": [
+                "README.md",
+                "docs/",
+                "API documentation",
+                "package.json"
+              ],
+              "focus": "Project configuration and existing documentation"
+            }
+          ],
+          "deliverables": [
+            "Technical analysis report",
+            "Implementation recommendations",
+            "Risk assessment",
+            "Alternative approaches evaluation"
+          ],
+          "prevents_implementation": true,
+          "created_at": "2025-09-13T21:05:20.187Z"
+        },
+        {
+          "id": "audit_1757797520187_e7202bdf",
+          "type": "audit",
+          "title": "Audit: Add comprehensive logging to diagnose startup performance issues",
+          "description": "Comprehensive quality audit and review of the completed feature: Add comprehensive logging to diagnose startup performance issues\n\nOriginal Description: Implement comprehensive logging throughout the codebase, especially for startup processes, to diagnose why the locally hosted version is taking too long to start. Update development/essentials/ to reflect this change.",
+          "status": "pending",
+          "estimated_hours": 0.5,
+          "success_criteria": [
+            "Linter Perfection",
+            "Build Success",
+            "Runtime Success",
+            "Test Integrity",
+            "Function Documentation",
+            "Implementation Quality",
+            "Security Standards",
+            "Performance Standards"
+          ],
+          "prevents_completion": true,
+          "original_implementer": null,
+          "prevents_self_review": true,
+          "audit_type": "embedded_quality_gate",
+          "created_at": "2025-09-13T21:05:20.189Z"
+        }
+      ],
+      "created_at": "2025-09-13T21:05:20.189Z",
+      "auto_research_created": false,
+      "completed_at": "2025-09-13T22:07:52.311Z",
+      "updated_at": "2025-09-13T22:07:52.311Z",
+      "archived_at": "2025-09-13T22:07:52.312Z",
+      "archive_version": "2.0.0"
     }
   ],
-  "total_completed": 1,
-  "last_completion": "2025-09-13T17:35:43.808Z",
-  "created_at": "2025-09-13T17:35:43.808Z"
+  "total_completed": 3,
+  "last_completion": "2025-09-13T17:45:13.746Z",
+  "created_at": "2025-09-13T17:35:43.808Z",
+  "last_archived": "2025-09-13T22:07:52.312Z"
 }

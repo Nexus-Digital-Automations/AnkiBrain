@@ -71,6 +71,55 @@ class PerformanceFormatter(logging.Formatter):
         return json.dumps(log_data, separators=(",", ":"))
 
 
+# Project-specific performance thresholds based on AnkiBrain requirements
+PERFORMANCE_THRESHOLDS = {
+    # Critical startup operations (high-priority bottlenecks)
+    "wait_for_ready_message": 20000,  # 20s - ChatAI subprocess startup
+    "create_ankibrain_instance": 5000,  # 5s - instance creation
+    "load_ankibrain_main": 30000,  # 30s - total LOCAL mode startup
+    "create_subprocess_exec": 10000,  # 10s - subprocess creation
+    # Webview and UI operations
+    "webview_initialization": 10000,  # 10s - side panel webview
+    "create_ankibrain_menu": 1000,  # 1s - menu creation
+    # Settings and configuration
+    "initialize_settings_manager": 2000,  # 2s - settings load
+    "setup_installation_dialog": 1000,  # 1s - dialog setup
+    # Import and module loading operations
+    "import_core_modules": 3000,  # 3s - core module imports
+    "import_ankibrain_module": 2000,  # 2s - AnkiBrain module import
+    "import_local_mode_dependencies": 1000,  # 1s - dependency imports
+    "import_server_mode_dependencies": 1000,  # 1s - dependency imports
+    # File operations and checks
+    "check_installation_status": 1000,  # 1s - installation check
+    "run_boot_checks": 2000,  # 2s - boot checks
+    "setup_version_file": 500,  # 500ms - file operations
+    # Default thresholds by operation patterns
+    "setup_": 1000,  # 1s for setup operations
+    "import_": 2000,  # 2s for import operations
+    "create_": 3000,  # 3s for creation operations
+    "initialize_": 2000,  # 2s for initialization operations
+    "load_": 5000,  # 5s for loading operations
+}
+
+
+def get_threshold_for_operation(operation: str) -> float:
+    """
+    Get performance threshold for specific operation.
+    Uses project-specific thresholds based on AnkiBrain performance requirements.
+    """
+    # Check for exact match first
+    if operation in PERFORMANCE_THRESHOLDS:
+        return PERFORMANCE_THRESHOLDS[operation]
+
+    # Check for pattern matches (operations starting with specific prefixes)
+    for pattern, threshold in PERFORMANCE_THRESHOLDS.items():
+        if pattern.endswith("_") and operation.startswith(pattern):
+            return threshold
+
+    # Default threshold for unmatched operations (5 seconds as per requirements)
+    return 5000
+
+
 class PerformanceLogger:
     """
     Enhanced logger specifically designed for startup performance analysis.
@@ -200,9 +249,13 @@ class PerformanceLogger:
             return None
 
     def log_bottleneck_warning(
-        self, operation: str, duration_ms: float, threshold_ms: float = 1000
+        self, operation: str, duration_ms: float, threshold_ms: float = None
     ):
         """Log warning if operation exceeds performance threshold."""
+        # Use project-specific thresholds if not explicitly provided
+        if threshold_ms is None:
+            threshold_ms = get_threshold_for_operation(operation)
+
         if duration_ms > threshold_ms:
             message = f"Performance bottleneck detected: {operation} took {duration_ms:.1f}ms (threshold: {threshold_ms}ms)"
             self.startup_warning(
@@ -242,7 +295,7 @@ def PerformanceTimer(
         raise
     finally:
         duration_ms = logger.timing_end(operation, context)
-        # Check for performance bottlenecks
+        # Check for performance bottlenecks using project-specific thresholds
         logger.log_bottleneck_warning(operation, duration_ms)
 
 

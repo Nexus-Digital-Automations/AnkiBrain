@@ -132,5 +132,21 @@ grep "bottleneck" logs/ankibrain_performance.log
 
 **Document Purpose:** This file defines the quality gate for all AnkiBrain feature implementations and ensures consistent, reliable plugin behavior.
 
+### 🎯 RECENT UPDATES
+
+#### Comprehensive Logging Implementation (2025-09-13)
+- **✅ COMPLETED**: Full performance logging system implemented to diagnose startup performance issues
+- **Features Added**:
+  - Project-specific performance thresholds (500ms to 30s based on operation type)
+  - Structured JSON logging to `logs/ankibrain_performance.log`
+  - Comprehensive startup timing throughout __init__.py, boot.py, and ExternalScriptManager
+  - Automatic bottleneck detection with contextual warnings
+  - Memory usage tracking (when psutil available)
+  - Thread-safe logger instances with proper cleanup
+- **Testing Completed**: All logging functionality verified working via comprehensive test suite
+- **Performance Targets**: Thresholds configured to meet AnkiBrain-specific requirements (20s for subprocess, 10s for webview, 2s for settings, etc.)
+
+---
+
 **Last Updated:** 2025-09-13
-**Status:** Active Standards - Comprehensive requirements for AnkiBrain plugin development
+**Status:** Active Standards - Comprehensive requirements for AnkiBrain plugin development with logging diagnostics

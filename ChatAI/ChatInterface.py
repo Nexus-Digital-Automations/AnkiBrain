@@ -56,7 +56,7 @@ class ChatInterface(ABC):
                     LANGUAGE = {language}
                     
                     {'When finished, make sure your response is in ' +
-                     language + ' only.' if language is not 'English' else ''}
+                     language + ' only.' if language != 'English' else ''}
                      
                      {custom_prompt}
                     '''
@@ -98,7 +98,7 @@ class ChatInterface(ABC):
             {"The example given above is in English, but remember to translate the final cards into " +
              language + ". The front text and the back text should be in " + language +
              "!. The names of the JSON fields themselves ('front' and 'back') should remain in English."
-            if language is not 'English' else ''
+            if language != 'English' else ''
             }
             
             {custom_prompt}
@@ -136,7 +136,7 @@ class ChatInterface(ABC):
             
             {'The example given above is in English, but remember to translate the final cards into ' +
              language + "! The name of the JSON field itself ('text') should remain in English."
-            if language is not 'English' else ''
+            if language != 'English' else ''
             }
             
             {custom_prompt}
