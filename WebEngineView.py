@@ -6,7 +6,6 @@ from WebEnginePage import WebEnginePage
 
 
 class WebEngineView(QWebEngineView):
-
     def __init__(self, *args, **kwargs):
         super(WebEngineView, self).__init__(*args, **kwargs)
         settings = self.settings()

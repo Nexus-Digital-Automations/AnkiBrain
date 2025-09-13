@@ -91,7 +91,8 @@ class ExternalScriptManager:
             ready_wait_start = time.time()
             try:
                 ready_msg = await asyncio.wait_for(
-                    self.process.stdout.readline(), timeout=60.0  # 60 second timeout
+                    self.process.stdout.readline(),
+                    timeout=60.0,  # 60 second timeout
                 )
                 ready_wait_time = (time.time() - ready_wait_start) * 1000
 

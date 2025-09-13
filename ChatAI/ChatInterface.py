@@ -5,8 +5,8 @@ from langchain.schema import Document
 
 
 def extract_json_array(s):
-    start = s.find('[')
-    end = s.rfind(']') + 1  # +1 to include the bracket itself
+    start = s.find("[")
+    end = s.rfind("]") + 1  # +1 to include the bracket itself
     if start != -1 and end != -1:
         return s[start:end]
     else:
@@ -20,7 +20,6 @@ class BadOutputGenerateCardsException(Exception):
 
 
 class ChatInterface(ABC):
-
     @abstractmethod
     def clear_memory(self):
         pass
@@ -42,24 +41,32 @@ class ChatInterface(ABC):
 
     def explain_topic(self, topic: str, options: ExplainTopicOptions = None) -> str:
         if options is None:
-            options = {'custom_prompt': '', 'level_of_detail': 'EXTREME', 'level_of_expertise': 'EXPERT', 'language': 'English'}
+            options = {
+                "custom_prompt": "",
+                "level_of_detail": "EXTREME",
+                "level_of_expertise": "EXPERT",
+                "language": "English",
+            }
 
-        custom_prompt = options['custom_prompt']
-        level_of_detail = options['level_of_detail']
-        level_of_expertise = options['level_of_expertise']
-        language = options['language']
-        query = f'''
+        custom_prompt = options["custom_prompt"]
+        level_of_detail = options["level_of_detail"]
+        level_of_expertise = options["level_of_expertise"]
+        language = options["language"]
+        query = f"""
                     Explain X using the following parameters: 
                     X = {topic}
                     LEVEL OF DETAIL = {level_of_detail}
                     LEVEL OF EXPERTISE = {level_of_expertise}
                     LANGUAGE = {language}
                     
-                    {'When finished, make sure your response is in ' +
-                     language + ' only.' if language != 'English' else ''}
+                    {
+            "When finished, make sure your response is in " + language + " only."
+            if language != "English"
+            else ""
+        }
                      
                      {custom_prompt}
-                    '''
+                    """
 
         explanation = self.single_query_resets_memory(query)
         return explanation
@@ -69,20 +76,22 @@ class ChatInterface(ABC):
 
     def generate_cards(self, text: str, options: GenerateCardsOptions = None) -> str:
         if options is None:
-            options = {'type': 'basic', 'language': 'English'}
+            options = {"type": "basic", "language": "English"}
 
-        custom_prompt = options['custom_prompt']
-        card_type = options['type']
-        language = options['language']
+        custom_prompt = options["custom_prompt"]
+        card_type = options["type"]
+        language = options["language"]
 
-        query = ''
-        if card_type == 'basic':
+        query = ""
+        if card_type == "basic":
             query = f'''
             Please read the {language} text below in quotes:
             
             "{text}"
             
-            From the text above, I want you to create flash cards in {language}. Output in JSON format, using the following as a strict template for the format. 
+            From the text above, I want you to create flash cards in {
+                language
+            }. Output in JSON format, using the following as a strict template for the format. 
             
             [
             {{
@@ -95,17 +104,21 @@ class ChatInterface(ABC):
             }}
             ] 
             
-            {"The example given above is in English, but remember to translate the final cards into " +
-             language + ". The front text and the back text should be in " + language +
-             "!. The names of the JSON fields themselves ('front' and 'back') should remain in English."
-            if language != 'English' else ''
+            {
+                "The example given above is in English, but remember to translate the final cards into "
+                + language
+                + ". The front text and the back text should be in "
+                + language
+                + "!. The names of the JSON fields themselves ('front' and 'back') should remain in English."
+                if language != "English"
+                else ""
             }
             
             {custom_prompt}
             
             Do not output any other text besides JSON. Begin output now as the template above.
             '''
-        elif card_type == 'cloze':
+        elif card_type == "cloze":
             query = f'''
             Please read the {language} text below in quotes.
             
@@ -134,9 +147,12 @@ class ChatInterface(ABC):
             
             Make each card relatively small - that means your "text" field should not be more than one sentence.
             
-            {'The example given above is in English, but remember to translate the final cards into ' +
-             language + "! The name of the JSON field itself ('text') should remain in English."
-            if language != 'English' else ''
+            {
+                "The example given above is in English, but remember to translate the final cards into "
+                + language
+                + "! The name of the JSON field itself ('text') should remain in English."
+                if language != "English"
+                else ""
             }
             
             {custom_prompt}
@@ -144,7 +160,7 @@ class ChatInterface(ABC):
             Do not output any other text besides JSON. Begin output now following the template above.
             '''
         else:
-            raise Exception('Invalid card type')
+            raise Exception("Invalid card type")
 
         cards_raw_str = self.single_query_resets_memory(query).strip()
         cards_raw_str = extract_json_array(cards_raw_str)  # ???

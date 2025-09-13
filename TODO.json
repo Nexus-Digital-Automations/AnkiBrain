@@ -1,6 +1,28 @@
 {
   "project": "unknown",
-  "tasks": [],
+  "tasks": [
+    {
+      "status": "in_progress",
+      "created_at": "2025-09-13T22:41:09.399Z",
+      "title": "Fix code formatting violations in main codebase",
+      "description": "Fix formatting violations detected by ruff format --check. Main codebase files need reformatting: ChatAI/ChatAIWithDocuments.py, ChatAI/ChatAIWithoutDocuments.py, ChatAI/ChatInterface.py, ExternalScriptManager.py, WebEngineView.py, cards.py, networking.py, project_paths.py, settings.py, util.py. These violate the Code Formatting requirement in task-requirements.md. Bundled dependencies formatting issues will be ignored per protocol.",
+      "category": "error",
+      "priority": "high",
+      "id": "error_1757803269399_3q00dfc2oz1",
+      "assigned_agent": "dev_session_1757802427882_1_general_43d79e24",
+      "started_at": "2025-09-13T22:41:26.051Z",
+      "claimed_by": "dev_session_1757802427882_1_general_43d79e24",
+      "agent_assignment_history": [
+        {
+          "agentId": "dev_session_1757802427882_1_general_43d79e24",
+          "role": "primary",
+          "assignedAt": "2025-09-13T22:41:26.051Z",
+          "reassignReason": null,
+          "claimPriority": "normal"
+        }
+      ]
+    }
+  ],
   "agents": {
     "dev_session_1757802427882_1_general_43d79e24": {
       "name": "undefined Agent",
@@ -8,7 +30,7 @@
       "specialization": [],
       "status": "active",
       "assignedTasks": [],
-      "lastHeartbeat": "2025-09-13T22:37:57.929Z",
+      "lastHeartbeat": "2025-09-13T22:39:53.307Z",
       "parentAgentId": null,
       "capabilities": [
         "file-operations",
@@ -22,11 +44,11 @@
       "createdAt": "2025-09-13T22:27:07.882Z",
       "sessionId": null,
       "metadata": {
-        "renewedAt": "2025-09-13T22:37:57.929Z",
+        "renewedAt": "2025-09-13T22:39:53.307Z",
         "renewalReason": "Agent reinitialization requested"
       },
-      "lastRenewal": "2025-09-13T22:37:57.929Z",
-      "renewalCount": 2
+      "lastRenewal": "2025-09-13T22:39:53.307Z",
+      "renewalCount": 3
     },
     "dev_session_1757802535705_1_general_3f303957": {
       "name": "undefined Agent",
@@ -34,7 +56,7 @@
       "specialization": [],
       "status": "active",
       "assignedTasks": [],
-      "lastHeartbeat": "2025-09-13T22:37:56.961Z",
+      "lastHeartbeat": "2025-09-13T22:40:32.063Z",
       "parentAgentId": null,
       "capabilities": [
         "file-operations",
@@ -48,11 +70,11 @@
       "createdAt": "2025-09-13T22:28:55.705Z",
       "sessionId": null,
       "metadata": {
-        "renewedAt": "2025-09-13T22:37:56.961Z",
+        "renewedAt": "2025-09-13T22:40:32.063Z",
         "renewalReason": "Agent reinitialization requested"
       },
-      "lastRenewal": "2025-09-13T22:37:56.961Z",
-      "renewalCount": 2
+      "lastRenewal": "2025-09-13T22:40:32.063Z",
+      "renewalCount": 3
     }
   },
   "settings": {

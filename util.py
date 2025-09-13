@@ -16,8 +16,8 @@ def has_ankibrain_completed_install():
 
 
 class UserMode(Enum):
-    LOCAL = 'LOCAL'
-    SERVER = 'SERVER'
+    LOCAL = "LOCAL"
+    SERVER = "SERVER"
 
 
 def rewrite_json_file(new_data: dict, f):
@@ -33,36 +33,42 @@ def rewrite_json_file(new_data: dict, f):
 
 
 def macos_run_script_in_terminal(pth: str, cwd: str = root_dir):
-    subprocess.run(['chmod', '+x', pth], cwd=cwd)
-    command = f'tell app "Terminal" to do script "source ~/.bashrc; cd \'{cwd}\'; \'{pth}\'"'
+    subprocess.run(["chmod", "+x", pth], cwd=cwd)
+    command = (
+        f"tell app \"Terminal\" to do script \"source ~/.bashrc; cd '{cwd}'; '{pth}'\""
+    )
 
-    subprocess.run(['osascript', '-e', command])
+    subprocess.run(["osascript", "-e", command])
 
 
 def linux_run_script_in_terminal(pth: str, cwd: str = root_dir):
-    subprocess.run(['chmod', '+x', pth], cwd=cwd)
-    subprocess.run(['x-terminal-emulator', '-e', f'bash -c "cd \'{cwd}\'; \'{pth}\'"'])
+    subprocess.run(["chmod", "+x", pth], cwd=cwd)
+    subprocess.run(["x-terminal-emulator", "-e", f"bash -c \"cd '{cwd}'; '{pth}'\""])
 
 
 def run_win_install():
-    subprocess.call(path.join(root_dir, 'win-install.bat'))
+    subprocess.call(path.join(root_dir, "win-install.bat"))
 
 
 def run_macos_install():
-    macos_run_script_in_terminal(path.join(root_dir, './macos-install.sh'), cwd=root_dir)
+    macos_run_script_in_terminal(
+        path.join(root_dir, "./macos-install.sh"), cwd=root_dir
+    )
 
 
 def run_linux_install():
-    linux_run_script_in_terminal(path.join(root_dir, './linux-install.sh'), cwd=root_dir)
+    linux_run_script_in_terminal(
+        path.join(root_dir, "./linux-install.sh"), cwd=root_dir
+    )
 
 
 def is_windows():
-    return platform.system() == 'Windows'
+    return platform.system() == "Windows"
 
 
 def is_macos():
-    return platform.system() == 'Darwin'
+    return platform.system() == "Darwin"
 
 
 def is_linux():
-    return platform.system() == 'Linux'
+    return platform.system() == "Linux"

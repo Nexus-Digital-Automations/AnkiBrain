@@ -32,25 +32,25 @@ def get_ankibrain_version():
     if currentVersion doesn't exist, then flag that AnkiBrain must have updated.
 """
 default_settings = {
-    "aiLanguage": 'English',
-    'automaticallyAddCards': True,
-    'customPromptChat': '',
-    'customPromptMakeCards': '',
-    'customPromptTopicExplanation': '',
-    'deleteCardsAfterAdding': True,
+    "aiLanguage": "English",
+    "automaticallyAddCards": True,
+    "customPromptChat": "",
+    "customPromptMakeCards": "",
+    "customPromptTopicExplanation": "",
+    "deleteCardsAfterAdding": True,
     "colorMode": "dark",
     "currentVersion": get_ankibrain_version(),
     "documents_saved": [],  # local mode only, server mode uses user.documentsSaved
     "lifetime_total_cost": 0,
     "user_mode": None,
-    "llmModel": 'gpt-3.5-turbo',
-    'temperature': 0,
-    'user': None,
-    'devMode': False,
-    'showBootReminderDialog': True,
-    'showCardBottomHint': True,
-    'showSidePanel': True,
-    'tempCards': [],
+    "llmModel": "gpt-3.5-turbo",
+    "temperature": 0,
+    "user": None,
+    "devMode": False,
+    "showBootReminderDialog": True,
+    "showCardBottomHint": True,
+    "showSidePanel": True,
+    "tempCards": [],
 }
 
 
@@ -60,7 +60,7 @@ def settings_exists(pth=settings_path):
 
 def create_settings_file(pth=settings_path):
     if not settings_exists(pth):
-        with open(pth, 'w') as f:
+        with open(pth, "w") as f:
             json.dump(default_settings, f, indent=2, sort_keys=True)
 
 
@@ -74,13 +74,15 @@ class SettingsManager:
         self.pth = pth
 
         if settings_exists(self.pth):
-            with open(self.pth, 'r') as f:
+            with open(self.pth, "r") as f:
                 self.settings = json.load(f)
 
                 # Run update check first before merging default settings (which has current version number).
                 # get_settings_current_version() will return '0' if settings.json has no version info,
                 # which means this will evaluate to True.
-                self.b_ankibrain_updated = get_ankibrain_version() > self.get_settings_current_version()
+                self.b_ankibrain_updated = (
+                    get_ankibrain_version() > self.get_settings_current_version()
+                )
 
                 # Check if any default keys missing.
                 for k, v in default_settings.items():
@@ -93,14 +95,14 @@ class SettingsManager:
             # No settings file, this is either a first time install or update from version where there
             # was no settings file (or user deleted it). In the second case there might be bugs
             # if the update adds dependencies to requirements.txt and the user does not update the
-            # dependencies. 
+            # dependencies.
             self.b_ankibrain_updated = False
             create_settings_file(self.pth)
-            with open(self.pth, 'r') as f:
+            with open(self.pth, "r") as f:
                 self.settings = json.load(f)
 
     def save(self):
-        with open(self.pth, 'w') as f:
+        with open(self.pth, "w") as f:
             rewrite_json_file(self.settings, f)
 
     def edit(self, k: str, v: Any, save=True):
@@ -117,45 +119,49 @@ class SettingsManager:
         return self.settings[k]
 
     def get_settings_current_version(self):
-        v = ''
-        if self.settings['currentVersion'] is None:
+        v = ""
+        if self.settings["currentVersion"] is None:
             """
             In this scenario, we were not storing currentVersion previously. 
             By returning '0', this will always appear as if the app was just updated. 
             """
-            return '0'
+            return "0"
 
-        v = self.settings['currentVersion']
+        v = self.settings["currentVersion"]
         return v
 
     def get_user_mode(self) -> Optional[UserMode]:
-        user_mode = self.get('user_mode')
+        user_mode = self.get("user_mode")
         if user_mode is not None:
             return UserMode(user_mode)
         else:
             return None
 
     def set_user_mode(self, user_mode: UserMode):
-        self.edit('user_mode', user_mode.value)
+        self.edit("user_mode", user_mode.value)
 
     def set_new_version(self, version: str, save=True):
-        self.edit('currentVersion', version, save=save)
+        self.edit("currentVersion", version, save=save)
 
     def add_cost(self, cost: int, save=True):
-        self.edit('lifetime_total_cost', cost + self.settings['lifetime_total_cost'], save=save)
+        self.edit(
+            "lifetime_total_cost",
+            cost + self.settings["lifetime_total_cost"],
+            save=save,
+        )
 
     def add_saved_document(self, doc):
-        docs = self.get('documents_saved')
+        docs = self.get("documents_saved")
         docs.append(doc)
-        self.edit('documents_saved', docs)
+        self.edit("documents_saved", docs)
 
     def add_saved_documents(self, documents):
-        docs = self.get('documents_saved')
+        docs = self.get("documents_saved")
         docs.extend(documents)
-        self.edit('documents_saved', docs)
+        self.edit("documents_saved", docs)
 
     def clear_saved_documents(self):
-        self.edit('documents_saved', [])
+        self.edit("documents_saved", [])
 
     def has_ankibrain_updated(self):
         """
