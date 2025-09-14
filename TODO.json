@@ -34,7 +34,7 @@
       "specialization": [],
       "status": "active",
       "assignedTasks": [],
-      "lastHeartbeat": "2025-09-14T03:21:30.777Z",
+      "lastHeartbeat": "2025-09-14T03:23:59.663Z",
       "parentAgentId": null,
       "capabilities": [
         "file-operations",
@@ -47,7 +47,12 @@
       "maxConcurrentTasks": 5,
       "createdAt": "2025-09-14T03:21:30.777Z",
       "sessionId": null,
-      "metadata": {}
+      "metadata": {
+        "renewedAt": "2025-09-14T03:23:59.663Z",
+        "renewalReason": "Agent reinitialization requested"
+      },
+      "lastRenewal": "2025-09-14T03:23:59.663Z",
+      "renewalCount": 1
     }
   },
   "settings": {
