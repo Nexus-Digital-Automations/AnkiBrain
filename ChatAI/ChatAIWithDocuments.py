@@ -19,6 +19,7 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.vectorstores import Chroma
 
 from ChatInterface import ChatInterface
+from model_compatibility import get_compatible_model_name, log_model_usage
 
 
 def get_file_extension(file_name: str) -> str:
@@ -74,7 +75,11 @@ class ChatAIWithDocuments(ChatInterface):
             temperature = data["temperature"]
             model_name = data["llmModel"]
 
-        self.llm = ChatOpenAI(temperature=temperature, model_name=model_name)
+        # Apply model compatibility mapping for unsupported models (e.g., GPT-5)
+        compatible_model = get_compatible_model_name(model_name)
+        log_model_usage(model_name, compatible_model)
+
+        self.llm = ChatOpenAI(temperature=temperature, model_name=compatible_model)
         self.vectorstore = Chroma(
             embedding_function=HuggingFaceEmbeddings(),
             persist_directory=persist_directory,
@@ -116,10 +121,10 @@ class ChatAIWithDocuments(ChatInterface):
         with open(settings_path, "r+") as f:
             """
             Save all file paths found in user_files/documents.
-            
+
             For all the files that have been found:
             if the file name and path is not already saved in documents.json, save it to documents.json.
-            Also, will persist it to vectorstore. 
+            Also, will persist it to vectorstore.
             """
             data = json.load(f)
             for dirName, subdirList, fileNames in os.walk(self.documents_dir_path):
