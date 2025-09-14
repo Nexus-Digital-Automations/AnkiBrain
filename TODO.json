@@ -1,6 +1,28 @@
 {
   "project": "unknown",
-  "tasks": [],
+  "tasks": [
+    {
+      "status": "in_progress",
+      "created_at": "2025-09-14T01:01:02.037Z",
+      "title": "Fix error making cards with GPT-5 mini model",
+      "description": "CRITICAL ERROR: User reports getting error making cards errors when using the newly added gpt-5-mini model. This is a showstopper bug that prevents the GPT-5 mini model from functioning properly. Need to investigate backend ChatAI integration, API calls, model configuration, and error handling for the gpt-5-mini model identifier. Root cause analysis required - model works in dropdown but fails during actual usage.",
+      "category": "error",
+      "priority": "normal",
+      "id": "error_1757811662037_6xh7prr8wdb",
+      "assigned_agent": "dev_session_1757802535705_1_general_3f303957",
+      "started_at": "2025-09-14T01:03:23.547Z",
+      "claimed_by": "dev_session_1757802535705_1_general_3f303957",
+      "agent_assignment_history": [
+        {
+          "agentId": "dev_session_1757802535705_1_general_3f303957",
+          "role": "primary",
+          "assignedAt": "2025-09-14T01:03:23.547Z",
+          "reassignReason": null,
+          "claimPriority": "normal"
+        }
+      ]
+    }
+  ],
   "agents": {
     "dev_session_1757802535705_1_general_3f303957": {
       "name": "undefined Agent",
@@ -8,7 +30,7 @@
       "specialization": [],
       "status": "active",
       "assignedTasks": [],
-      "lastHeartbeat": "2025-09-14T00:38:54.734Z",
+      "lastHeartbeat": "2025-09-14T01:02:47.409Z",
       "parentAgentId": null,
       "capabilities": [
         "file-operations",
@@ -22,11 +44,11 @@
       "createdAt": "2025-09-13T22:28:55.705Z",
       "sessionId": null,
       "metadata": {
-        "renewedAt": "2025-09-14T00:38:54.734Z",
+        "renewedAt": "2025-09-14T01:02:47.409Z",
         "renewalReason": "Agent reinitialization requested"
       },
-      "lastRenewal": "2025-09-14T00:38:54.734Z",
-      "renewalCount": 8
+      "lastRenewal": "2025-09-14T01:02:47.409Z",
+      "renewalCount": 9
     }
   },
   "settings": {

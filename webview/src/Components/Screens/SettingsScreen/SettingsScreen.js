@@ -73,15 +73,18 @@ const AdvancedSettings = (props) => {
               if (isLocalMode()) {
                 successToast(
                   "LLM Changed",
-                  "The AI Language Model has been changed. Please restart AnkiBrain for this change to take effect."
+                  "The AI Language Model has been changed. Please restart AnkiBrain for this change to take effect.",
                 );
               }
             }}
           >
             <option value={"gpt-3.5-turbo"}>gpt-3.5-turbo (default)</option>
             <option value={"gpt-4"}>gpt-4 (expensive)</option>
+            <option value={"gpt-4o"}>gpt-4o (advanced)</option>
+            <option value={"gpt-4o-mini"}>gpt-4o-mini (efficient)</option>
             <option value={"gpt-5"}>gpt-5 (premium)</option>
-            <option value={"gpt-5-mini"}>gpt-5-mini</option>
+            <option value={"gpt-5-mini"}>gpt-5-mini (fast)</option>
+            <option value={"gpt-5-nano"}>gpt-5-nano (ultra-fast)</option>
           </Select>
           <Input
             value={temperature}
@@ -100,14 +103,14 @@ const AdvancedSettings = (props) => {
                 if (number < 0 || number > 1) {
                   errorToast(
                     "Invalid Temperature",
-                    "Please enter a temperature between 0 and 1."
+                    "Please enter a temperature between 0 and 1.",
                   );
                 } else {
                   await setTemperature(e.target.value);
                   if (isLocalMode()) {
                     successToast(
                       "Temperature Changed",
-                      "The AI temperature has been changed. Please restart AnkiBrain for this change to take effect."
+                      "The AI temperature has been changed. Please restart AnkiBrain for this change to take effect.",
                     );
                   }
                 }
@@ -137,7 +140,7 @@ const AdvancedSettings = (props) => {
               e.preventDefault();
               infoToast(
                 "No Access",
-                "You do not have access to developer mode at this time."
+                "You do not have access to developer mode at this time.",
               );
             }
           }}
@@ -164,22 +167,22 @@ export const SettingsScreen = (props) => {
   const [showUserInterfaceSettings, setShowUserInterfaceSettings] =
     useState(false);
   const showBootReminderDialog = useSelector(
-    (state) => state.showBootReminderDialog.value
+    (state) => state.showBootReminderDialog.value,
   );
   const showCardBottomHint = useSelector(
-    (state) => state.showCardBottomHint.value
+    (state) => state.showCardBottomHint.value,
   );
   const automaticallyAddCards = useSelector(
-    (state) => state.automaticallyAddCards.value
+    (state) => state.automaticallyAddCards.value,
   );
   const deleteCardsAfterAdding = useSelector(
-    (state) => state.deleteCardsAfterAdding.value
+    (state) => state.deleteCardsAfterAdding.value,
   );
 
   const [showLanguageModal, setShowLanguageModal] = useState(false);
   const language = useSelector((store) => store.language.value);
   const [selectedLanguage, setSelectedLanguage] = useState(
-    store.getState().language.value
+    store.getState().language.value,
   );
 
   const [showCustomLanguageInput, setShowCustomLanguageInput] = useState(false);
@@ -234,7 +237,7 @@ export const SettingsScreen = (props) => {
                   if (res.status === "success") {
                     successToast(
                       "Password Reset Email",
-                      "A password reset verification code has been sent to the email address given."
+                      "A password reset verification code has been sent to the email address given.",
                     );
                   }
                 }}
@@ -291,7 +294,7 @@ export const SettingsScreen = (props) => {
                   let res = await postPasswordReset(
                     email,
                     password,
-                    verificationCode
+                    verificationCode,
                   );
 
                   if (!res) {
@@ -302,7 +305,7 @@ export const SettingsScreen = (props) => {
                   if (res && res.status === "success") {
                     successToast(
                       "Password Reset Successfully",
-                      "Your password has been reset. You can now login with your new password."
+                      "Your password has been reset. You can now login with your new password.",
                     );
                   }
                 }}
@@ -403,7 +406,7 @@ export const SettingsScreen = (props) => {
                           isChecked={automaticallyAddCards}
                           onChange={async () => {
                             await handleChangeAutoAddCards(
-                              !automaticallyAddCards
+                              !automaticallyAddCards,
                             );
                           }}
                         />
@@ -424,7 +427,7 @@ export const SettingsScreen = (props) => {
                           isChecked={deleteCardsAfterAdding}
                           onChange={async () => {
                             await handleChangeDeleteCardsAfterAdding(
-                              !deleteCardsAfterAdding
+                              !deleteCardsAfterAdding,
                             );
                           }}
                         />
@@ -459,11 +462,13 @@ export const SettingsScreen = (props) => {
                           isChecked={showBootReminderDialog}
                           onChange={async () => {
                             dispatch(
-                              setShowBootReminderDialog(!showBootReminderDialog)
+                              setShowBootReminderDialog(
+                                !showBootReminderDialog,
+                              ),
                             );
                             await pyEditSetting(
                               "showBootReminderDialog",
-                              !showBootReminderDialog
+                              !showBootReminderDialog,
                             );
                           }}
                         />
@@ -518,7 +523,7 @@ export const SettingsScreen = (props) => {
                               dispatch(setLanguage(newSelectedLanguage));
                               await pyEditSetting(
                                 "aiLanguage",
-                                newSelectedLanguage
+                                newSelectedLanguage,
                               );
                             } else {
                               setShowCustomLanguageInput(true);
@@ -610,7 +615,7 @@ export const SettingsScreen = (props) => {
                   onClick={() => {
                     infoToast(
                       "Coming Soon",
-                      "This feature is coming soon! Hang tight!"
+                      "This feature is coming soon! Hang tight!",
                     );
                   }}
                 >
