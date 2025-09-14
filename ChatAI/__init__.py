@@ -6,9 +6,9 @@ from typing import List, Any
 from dotenv import load_dotenv
 from langchain.callbacks import get_openai_callback
 
-from ChatAIWithDocuments import ChatAIWithDocuments
-from ChatAIWithoutDocuments import ChatAIWithoutDocuments
-from InterprocessCommand import InterprocessCommand as IC
+from .ChatAIWithDocuments import ChatAIWithDocuments
+from .ChatAIWithoutDocuments import ChatAIWithoutDocuments
+from .InterprocessCommand import InterprocessCommand as IC
 
 module_dir = path.abspath(path.dirname(__file__))
 ankibrain_project_root_dir = path.join(module_dir, "..")

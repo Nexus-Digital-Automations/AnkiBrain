@@ -6,7 +6,7 @@ from langchain import ConversationChain
 from langchain.chat_models import ChatOpenAI
 from langchain.memory import ConversationBufferMemory
 
-from ChatInterface import ChatInterface
+from .ChatInterface import ChatInterface
 import sys
 import os
 

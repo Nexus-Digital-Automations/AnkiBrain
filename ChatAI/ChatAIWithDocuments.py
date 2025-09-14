@@ -18,7 +18,7 @@ from langchain.schema import Document
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.vectorstores import Chroma
 
-from ChatInterface import ChatInterface
+from .ChatInterface import ChatInterface
 from model_compatibility import get_compatible_model_name, log_model_usage
 
 
