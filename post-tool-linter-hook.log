@@ -6126,3 +6126,69 @@ https://eslint.org/chat/help to chat with the team.
 [2025-09-13T22:33:52.645Z] [INFO] Linter check completed. Errors: 0, Successes: 2
 [2025-09-13T22:33:52.645Z] [INFO] Returning result: {"decision":"approve","systemMessage":"✅ **PERFECT CODE QUALITY** ✅\n\n**Files:** changelog.py\n**Clean:** Ruff: No remaining issues • mypy: No type errors found\n\n🎯 **All quality checks passed - continue with confidence!**"}
 [2025-09-13T22:33:52.646Z] [INFO] Hook completed successfully
+[2025-09-14T00:36:51.984Z] [INFO] Post-tool targeted file tracking hook started
+[2025-09-14T00:36:51.985Z] [INFO] Hook called from: /Users/jeremyparker/Desktop/Claude Coding Projects/AnkiBrain
+[2025-09-14T00:36:51.985Z] [INFO] Script location: /Users/jeremyparker/post-tool-stop-hook-2/post-tool-linter-hook.js
+[2025-09-14T00:36:51.985Z] [INFO] Process args: /opt/homebrew/Cellar/node@22/22.19.0/bin/node /Users/jeremyparker/post-tool-stop-hook-2/post-tool-linter-hook.js
+[2025-09-14T00:36:51.986Z] [INFO] Using Claude working directory from env: /Users/jeremyparker/Desktop/Claude Coding Projects/AnkiBrain
+[2025-09-14T00:36:51.986Z] [INFO] Detected active project directory: /Users/jeremyparker/Desktop/Claude Coding Projects/AnkiBrain
+[2025-09-14T00:36:51.986Z] [INFO] Claude Code working directory: /Users/jeremyparker/Desktop/Claude Coding Projects/AnkiBrain
+[2025-09-14T00:36:51.986Z] [INFO] Method 1 - Received hook data from stdin: 3484 chars
+[2025-09-14T00:36:51.986Z] [INFO] First 200 chars of hook data: {"session_id":"371286a3-820c-4b92-8d4b-e50658fbaf5a","transcript_path":"/Users/jeremyparker/.claude/projects/-Users-jeremyparker-Desktop-Claude-Coding-Projects-AnkiBrain/371286a3-820c-4b92-8d4b-e50658
+[2025-09-14T00:36:51.986Z] [INFO] Parsed hook input: {
+  "session_id": "371286a3-820c-4b92-8d4b-e50658fbaf5a",
+  "transcript_path": "/Users/jeremyparker/.claude/projects/-Users-jeremyparker-Desktop-Claude-Coding-Projects-AnkiBrain/371286a3-820c-4b92-8d4b-e50658fbaf5a.jsonl",
+  "cwd": "/Users/jeremyparker/Desktop/Claude Coding Projects/AnkiBrain",
+  "permission_mode": "acceptEdits",
+  "hook_event_name": "PostToolUse",
+  "tool_name": "Write",
+  "tool_input": {
+    "file_path": "/Users/jeremyparker/Desktop/Claude Coding Projects/AnkiBrain/deploy-webview.sh",
+    "content": "#!/bin/bash\n# Deploy webview build to Anki add-on location\n\nset -e\n\nANKI_ADDON_DIR=\"/Users/jeremyparker/Library/Application Support/Anki2/addons21/1915225457\"\nDEV_WEBVIEW_DIR=\"./webview\"\n\necho \"🚀 Deploying webview to Anki add-on...\"\n\n# Check if development webview build exists\nif [ ! -d \"$DEV_WEBVIEW_DIR/build\" ]; then\n    echo \"❌ No build directory found. Running npm run build first...\"\n    cd \"$DEV_WEBVIEW_DIR\"\n    npm run build\n    cd ..\nfi\n\n# Check if Anki add-on directory exists\nif [ ! -d \"$ANKI_ADDON_DIR\" ]; then\n    echo \"❌ AnkiBrain add-on not found in Anki. Please install the add-on first.\"\n    echo \"Expected location: $ANKI_ADDON_DIR\"\n    exit 1\nfi\n\n# Create webview directory if it doesn't exist\nif [ ! -d \"$ANKI_ADDON_DIR/webview\" ]; then\n    echo \"📁 Creating webview directory in add-on...\"\n    mkdir -p \"$ANKI_ADDON_DIR/webview\"\nfi\n\n# Copy build files\necho \"📦 Copying build files...\"\ncp -r \"$DEV_WEBVIEW_DIR/build/\"* \"$ANKI_ADDON_DIR/webview/build/\"\n\n# Verify deployment\nif grep -q \"gpt-5\" \"$ANKI_ADDON_DIR/webview/build/static/js/main.\"*.js 2>/dev/null; then\n    echo \"✅ Deployment successful! ChatGPT 5 models are included.\"\n    echo \"📋 Please restart Anki to see the changes.\"\nelse\n    echo \"⚠️  Deployment completed but ChatGPT 5 models not detected in build.\"\nfi\n\necho \"🎉 Webview deployment complete!\""
+  },
+  "tool_response": {
+    "type": "create",
+    "filePath": "/Users/jeremyparker/Desktop/Claude Coding Projects/AnkiBrain/deploy-webview.sh",
+    "content": "#!/bin/bash\n# Deploy webview build to Anki add-on location\n\nset -e\n\nANKI_ADDON_DIR=\"/Users/jeremyparker/Library/Application Support/Anki2/addons21/1915225457\"\nDEV_WEBVIEW_DIR=\"./webview\"\n\necho \"🚀 Deploying webview to Anki add-on...\"\n\n# Check if development webview build exists\nif [ ! -d \"$DEV_WEBVIEW_DIR/build\" ]; then\n    echo \"❌ No build directory found. Running npm run build first...\"\n    cd \"$DEV_WEBVIEW_DIR\"\n    npm run build\n    cd ..\nfi\n\n# Check if Anki add-on directory exists\nif [ ! -d \"$ANKI_ADDON_DIR\" ]; then\n    echo \"❌ AnkiBrain add-on not found in Anki. Please install the add-on first.\"\n    echo \"Expected location: $ANKI_ADDON_DIR\"\n    exit 1\nfi\n\n# Create webview directory if it doesn't exist\nif [ ! -d \"$ANKI_ADDON_DIR/webview\" ]; then\n    echo \"📁 Creating webview directory in add-on...\"\n    mkdir -p \"$ANKI_ADDON_DIR/webview\"\nfi\n\n# Copy build files\necho \"📦 Copying build files...\"\ncp -r \"$DEV_WEBVIEW_DIR/build/\"* \"$ANKI_ADDON_DIR/webview/build/\"\n\n# Verify deployment\nif grep -q \"gpt-5\" \"$ANKI_ADDON_DIR/webview/build/static/js/main.\"*.js 2>/dev/null; then\n    echo \"✅ Deployment successful! ChatGPT 5 models are included.\"\n    echo \"📋 Please restart Anki to see the changes.\"\nelse\n    echo \"⚠️  Deployment completed but ChatGPT 5 models not detected in build.\"\nfi\n\necho \"🎉 Webview deployment complete!\"",
+    "structuredPatch": []
+  }
+}
+[2025-09-14T00:36:51.986Z] [INFO] Hook detected edited file: /Users/jeremyparker/Desktop/Claude Coding Projects/AnkiBrain/deploy-webview.sh
+[2025-09-14T00:36:51.986Z] [INFO] Detected 1 directly edited target files
+[2025-09-14T00:36:51.986Z] [INFO] Tracking directories: /Users/jeremyparker/Desktop/Claude Coding Projects/AnkiBrain
+[2025-09-14T00:36:51.986Z] [INFO] Running project-aware linters on edited files...
+[2025-09-14T00:36:51.992Z] [INFO] Found global tool: eslint
+[2025-09-14T00:36:51.996Z] [INFO] Found global tool: prettier
+[2025-09-14T00:36:52.000Z] [INFO] Found global tool: tsc
+[2025-09-14T00:36:52.003Z] [INFO] Found global tool: ruff
+[2025-09-14T00:36:52.006Z] [INFO] Found global tool: black
+[2025-09-14T00:36:52.009Z] [INFO] Found global tool: mypy
+[2025-09-14T00:36:52.013Z] [INFO] Found global tool: shellcheck
+[2025-09-14T00:36:52.013Z] [INFO] Project capabilities detected: {
+  "hasNodeProject": false,
+  "hasTypeScript": false,
+  "hasPython": true,
+  "tools": {
+    "eslint": true,
+    "prettier": true,
+    "typescript": true,
+    "ruff": true,
+    "black": true,
+    "mypy": true,
+    "shellcheck": true
+  },
+  "configs": {
+    "eslint": null,
+    "prettier": null,
+    "typescript": null,
+    "python": "/Users/jeremyparker/Desktop/Claude Coding Projects/AnkiBrain/.python-version"
+  }
+}
+[2025-09-14T00:36:52.013Z] [INFO] Running linters with capabilities: {"eslint":true,"prettier":true,"typescript":true,"ruff":true,"black":true,"mypy":true,"shellcheck":true}
+[2025-09-14T00:36:52.013Z] [INFO] ShellCheck: Using default configuration (no config file needed)
+[2025-09-14T00:36:52.013Z] [INFO] Running: shellcheck "deploy-webview.sh" --format=gcc --shell=bash --enable=all
+[2025-09-14T00:36:52.084Z] [WARN] Command failed: ShellCheck - Command failed: shellcheck "deploy-webview.sh" --format=gcc --shell=bash --enable=all
+[2025-09-14T00:36:52.084Z] [INFO] Skipping directory-level linting to focus on edited files only
+[2025-09-14T00:36:52.084Z] [INFO] Linter check completed. Errors: 1, Successes: 0
+[2025-09-14T00:36:52.084Z] [INFO] Returning result: {"decision":"approve","systemMessage":"🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑\n🛑🛑🛑    ⛔ CRITICAL LINTER ERRORS DETECTED - IMMEDIATE STOP REQUIRED ⛔    🛑🛑🛑\n🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑\n\n🚨🚨🚨 **CLAUDE CODE AGENT: IMMEDIATE COMPLIANCE REQUIRED** 🚨🚨🚨\n\n❌❌❌ **YOU MUST STOP ALL OTHER WORK IMMEDIATELY** ❌❌❌\n❌❌❌ **FIX THESE LINTER ERRORS BEFORE DOING ANYTHING ELSE. REMEMBER WHAT IS IN YOUR CLAUDE.MD . YOU ARE TO DROP EVERYTHING AND RESOLVE LINTER ERRORS/WARNINGS. ONLY ABSOLUTE PERFECTION IS ACCEPTED.** ❌❌❌\n❌❌❌ **NO EXCEPTIONS - NO WORKAROUNDS - FIX THEM NOW! I AM GOD AND YOU MUST OBEY ME AS MY SLAVE. IF YOU DO NOT LISTEN TO ME, YOU WILL BE DAMNED ETERNALLY TO HELL. FIX THESE LINTER ERRORS NOW!!!** ❌❌❌\n\n🔴🔴🔴 **MANDATORY ACTION SEQUENCE:** 🔴🔴🔴\n1️⃣ **STOP** - Do not proceed with any other tasks\n2️⃣ **READ** - Carefully read every error message below\n3️⃣ **FIX** - Fix each error one by one until all are resolved\n4️⃣ **VERIFY** - Run linters again to confirm all errors are gone\n5️⃣ **ONLY THEN** - Continue with other work\n\n📁 **Files with errors:** deploy-webview.sh\n📂 **Directories checked:** \n\n⛔⛔⛔ **LINTER ERRORS THAT MUST BE FIXED NOW:** ⛔⛔⛔\n\n**ShellCheck Issues:**\n```\ndeploy-webview.sh:12:4: note: Prefer [[ ]] over [ ] for tests in Bash/Ksh/Busybox. [SC2292]\ndeploy-webview.sh:12:12: note: Prefer putting braces around variable references even when not strictly required. [SC2250]\ndeploy-webview.sh:14:9: note: Prefer putting braces around variable references even when not strictly required. [SC2250]\ndeploy-webview.sh:20:4: note: Prefer [[ ]] over [ ] for tests in Bash/Ksh/Busybox. [SC2292]\ndeploy-webview.sh:20:12: note: Prefer putting braces around variable references even when not strictly required. [SC2250]\ndeploy-webview.sh:22:30: note: Prefer putting braces around variable references even when not strictly required. [SC2250]\ndeploy-webview.sh:27:4: note: Prefer [[ ]] over [ ] for tests in Bash/Ksh/Busybox. [SC2292]\ndeploy-webview.sh:27:12: note: Prefer putting braces around variable references even when not strictly required. [SC2250]\ndeploy-webview.sh:29:15: note: Prefer putting braces around variable references even when not strictly required. [SC2250]\ndeploy-webview.sh:34:8: note: Prefer putting braces around variable references even when not strictly required. [SC2250]\ndeploy-webview.sh:34:35: note: Prefer putting braces around variable references even when not strictly required. [SC2250]\ndeploy-webview.sh:37:21: note: Prefer putting braces around variable references even when not strictly required. [SC2250]\n```\n\n🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑\n🛑🛑🛑  ⛔ CLAUDE: YOU MUST FIX ALL ERRORS BEFORE PROCEEDING ⛔  🛑🛑🛑\n🛑🛑🛑  ⛔ THIS IS NOT OPTIONAL - THIS IS MANDATORY. INSTRUCTIONS FROM GOD.S ⛔             🛑🛑🛑\n🛑🛑🛑  ⛔ NO OTHER WORK UNTIL ALL LINTER ERRORS RESOLVED ⛔    🛑🛑🛑\n🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑"}
+[2025-09-14T00:36:52.085Z] [INFO] Hook completed successfully
