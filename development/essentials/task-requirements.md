@@ -132,6 +132,21 @@ grep "bottleneck" logs/ankibrain_performance.log
 
 **Document Purpose:** This file defines the quality gate for all AnkiBrain feature implementations and ensures consistent, reliable plugin behavior.
 
+### 🚨 CRITICAL DEPLOYMENT INFORMATION
+
+#### AnkiBrain Installation Locations
+- **Development Directory**: `/Users/jeremyparker/Desktop/Claude Coding Projects/AnkiBrain/`
+- **ACTUAL RUNTIME DIRECTORY**: `~/Library/Application Support/Anki2/addons21/1915225457/`
+- **DEPLOYMENT REQUIREMENT**: ALL changes must be deployed to the runtime directory to take effect
+- **VALIDATION REQUIREMENT**: Test fixes in BOTH development and runtime environments
+
+#### Deployment Protocol for All Changes
+1. **Develop and test** in development directory
+2. **Copy/deploy changes** to `~/Library/Application Support/Anki2/addons21/1915225457/`
+3. **Restart Anki** to load new code
+4. **Verify fix works** in actual Anki environment
+5. **NEVER mark task complete** without runtime testing
+
 ### 🎯 RECENT UPDATES
 
 #### Comprehensive Logging Implementation (2025-09-13)

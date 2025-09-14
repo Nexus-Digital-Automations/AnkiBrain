@@ -35,6 +35,14 @@ This document defines the **ONLY** changes requested by the user for the AnkiBra
 - Focus implementation on adding the two ChatGPT model variants and comprehensive performance logging
 - Maintain compatibility with existing functionality
 
+### 🚨 CRITICAL: ACTUAL DEPLOYMENT LOCATION
+**THE REAL ANKIBRAIN CODEBASE IS INSTALLED AS AN ADDON IN ANKI:**
+- **Development Directory**: `/Users/jeremyparker/Desktop/Claude Coding Projects/AnkiBrain/`
+- **ACTUAL RUNTIME DIRECTORY**: `~/Library/Application Support/Anki2/addons21/1915225457/`
+- **SYMLINK RELATIONSHIP**: The development directory is NOT automatically synced to the addon directory
+- **DEPLOYMENT REQUIREMENT**: All fixes must be copied/deployed to the actual addon directory to work
+- **CRITICAL**: Changes made only to development directory will NOT affect the running AnkiBrain plugin
+
 ### Success Criteria
 
 **ChatGPT Model Support:**
